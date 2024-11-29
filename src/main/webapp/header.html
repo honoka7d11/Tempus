@@ -2,8 +2,160 @@
 <html style="width: 100%;height: 100%;margin: 0;">
 <head>
 <meta charset="UTF-8">
-<title>ToDo</title>
+<title>tempus</title>
 </head>
-<body style="width: 100%; height: 100%;margin: 0;color: rgb(218, 37, 37); background: -moz-linear-gradient(top right, #94ffe8, #3498db, #08009c); 
-	 background: -webkit-linear-gradient(top right, #94ffe8, #3498db, #08009c); 
-	 background: linear-gradient(to bottom left, #94ffe8, #3498db, #08009c);">
+<style>
+	body {
+		font-family: Arial, sans-serif;
+		   background-color: #fefefe; 
+		   color: #555; 
+		   margin: 0;
+		   padding: 0;
+		   line-height: 1.6
+	}
+	
+	.container {
+	    max-width: 800px;
+	    margin: 20px auto;
+	    padding: 20px;
+	    background: #FFFFFF; 
+	    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	    border-radius: 8px;
+	}
+	
+	button {
+	    background-color: #4ABDF1; 
+	    color: white;
+	    border: none;
+	    padding: 12px 20px;
+	    cursor: pointer;
+	    border-radius: 6px;
+	    font-size: 16px;
+	    transition: background-color 0.3s;
+	}
+
+	button:hover {
+	    background-color: #3aa1d1; 
+	}
+	
+	table {
+	    width: 100%;
+	    border-collapse: collapse;
+	    margin: 20px 0;
+	    font-size: 16px;
+	    background-color: #FFFBEA;
+	    border-radius: 6px;
+	    overflow: hidden;
+	}
+
+	table th, table td {
+	    border: 1px solid #f0e6d8;
+	    padding: 12px;
+	    text-align: center;
+	}
+
+	table th {
+	    background-color: #FFEDB4;
+	    color: #555;
+	}
+
+	table tr:nth-child(even) {
+	    background-color: #FFF8E1; 
+	}
+
+	/* フォーム */
+	form {
+	    display: flex;
+	    flex-direction: column;
+	}
+
+	form label {
+	    margin-bottom: 8px;
+	    font-weight: bold;
+	    color: #444;
+	}
+
+	form input, form select {
+	    margin-bottom: 15px;
+	    padding: 10px;
+	    font-size: 16px;
+	    border: 1px solid #ddd;
+	    border-radius: 6px;
+	    background-color: #fefefe;
+	}
+	
+	.btn{
+		display: flex;
+	}
+	
+	
+	/* 基本のリンク */
+	a {
+	    color: #4ABDF1; /* 明るいスカイブルー */
+	    text-decoration: none; /* デフォルトの下線を消す */
+	    font-weight: bold;
+	    transition: color 0.3s, text-decoration 0.3s;
+	}
+
+	a:hover {
+	    color: #3aa1d1; /* 少し濃い色に変化 */
+	    text-decoration: underline; /* ホバー時に下線を表示 */
+	}
+
+	/* ボタン風リンク */
+	a.button {
+	    display: inline-block;
+	    background-color: #FFD700; /* 明るいゴールド */
+	    color: #333; /* テキストを目立たせる */
+	    padding: 10px 20px;
+	    text-decoration: none;
+	    border-radius: 6px;
+	    font-size: 16px;
+	    font-weight: bold;
+	    transition: background-color 0.3s, transform 0.2s;
+	}
+
+	a.button:hover {
+	    background-color: #FFC107; /* ホバー時に少し濃く */
+	    transform: scale(1.05); /* 拡大して目立たせる */
+	}
+
+	/* 装飾的なリンク */
+	a.decorative {
+	    color: #FF5733; 
+	    position: relative;
+	    text-decoration: none;
+	}
+
+	a.decorative::after {
+	    content: '';
+	    position: absolute;
+	    left: 0;
+	    bottom: 0;
+	    width: 100%;
+	    height: 2px;
+	    background-color: #FF5733; 
+	    transform: scaleX(0);
+	    transition: transform 0.3s ease-in-out;
+	    transform-origin: right;
+	}
+
+	a.decorative:hover::after {
+	    transform: scaleX(1); 
+	    transform-origin: left;
+	}
+	
+
+	/* レスポンシブ対応 */
+	@media (max-width: 600px) {
+	    .container {
+	        padding: 15px;
+	    }
+
+	    button {
+	        width: 100%;
+	    }
+	}
+
+</style>
+<body>
