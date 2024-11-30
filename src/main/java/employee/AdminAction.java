@@ -2,11 +2,11 @@ package employee;
 
 import java.util.List;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-import bean.Admin;
+import bean.Users;
 import dao.AdminDAO;
 import tool.Action;
 
@@ -15,17 +15,30 @@ public class AdminAction extends Action {
 	public String execute(
 			HttpServletRequest request, HttpServletResponse response
 	) throws Exception {
+		HttpSession session=request.getSession();
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		if (id == 1) {
+			AdminDAO dao = new AdminDAO();
+			List<Users> list=dao.search();
+			
+			
+			session.setAttribute("list", list);
+			
+			return "admin.jsp";
+		}else if (id == 2) {
+			AdminDAO dao = new AdminDAO();
+			List<Users> list=dao.search();
+			
+			
+			session.setAttribute("list", list);
+			
+			return "users.jsp";
+		}else {
+			return "login.jsp";
+		}
 		
 		
-		AdminDAO dao = new AdminDAO();
-		List<Admin> list=dao.search();
-		
-		request.setAttribute("list", list);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("admin.jsp");
-        dispatcher.forward(request, response);
-		
-		return "admin.jsp";
 	}
 
 }

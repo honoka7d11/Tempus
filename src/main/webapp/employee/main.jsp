@@ -31,7 +31,7 @@
         Boolean admin = (Boolean) request.getAttribute("admin");
         if (admin != null && admin) { 
     %>
-        <a href="Admin.action" class="button">管理者ページ</a>
+        <a href="Admin.action?id=1" class="button">管理者ページ</a>
         <a href="logout.html" class="button">ログアウト</a>
     <% 
         } else { 
