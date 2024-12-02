@@ -1,6 +1,7 @@
 package bean;
 
 public class Attend implements java.io.Serializable {
+	private int id;
 	private int userId;
 	private String attend;
 	private String leave;
@@ -8,9 +9,14 @@ public class Attend implements java.io.Serializable {
 	private String atTime;
 	private String leTime;
 	private String reason;
+	private String name;
 	
 	
 	//ゲッター
+	public int getId() {
+		return id;
+	}
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -37,11 +43,20 @@ public class Attend implements java.io.Serializable {
 	public String getReason() {
 		return reason;
 	}
+	
+	public String getName() {
+		return name;
+	}
 
 	//セッター
+	public void setId(int id) {
+		this.id=id;
+	}
+	
 	public void setUserId(int userId) {
 		this.userId=userId;
 	}
+	
 	public void setAttend(String attend) {
 		this.attend=attend;
 	}
@@ -65,6 +80,9 @@ public class Attend implements java.io.Serializable {
 	public void setReason(String reason) {
 		this.reason=reason;
 	}
-
+	
+	public void setName(String name) {
+		this.name=name;
+	}
 
 }

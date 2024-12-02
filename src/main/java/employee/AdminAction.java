@@ -16,6 +16,7 @@ public class AdminAction extends Action {
 			HttpServletRequest request, HttpServletResponse response
 	) throws Exception {
 		HttpSession session=request.getSession();
+		session.removeAttribute("list2");
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		if (id == 1) {
