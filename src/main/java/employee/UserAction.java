@@ -22,18 +22,33 @@ public class UserAction extends Action {
 			int userId = Integer.parseInt(request.getParameter("selectName"));
 			int admin = Integer.parseInt(request.getParameter("selectAdmin"));
 			if (userId == 0 || admin == 0) {
+				AdminDAO dao = new AdminDAO();
+				List<Users> list=dao.search();
+				
+				session.setAttribute("list", list);
+				
 				return "users.jsp";
 			}else if (admin == 1) {
 				AdminDAO dao = new AdminDAO();
 				dao.update(true, userId);
+				List<Users> list=dao.search();
+				
+				session.setAttribute("list", list);
 				
 				return "users.jsp";
 			}else if (admin == 2) {
 				AdminDAO dao = new AdminDAO();
 				dao.update(false, userId);
+				List<Users> list=dao.search();
+				
+				session.setAttribute("list", list);
 				
 				return "users.jsp";
 			}else {
+				AdminDAO dao = new AdminDAO();
+				List<Users> list=dao.search();
+				
+				session.setAttribute("list", list);
 				return "users.jsp";
 			}
 			
@@ -41,6 +56,11 @@ public class UserAction extends Action {
 			int userId = Integer.parseInt(request.getParameter("selectEmp"));
 			
 			if (userId == 0) {
+				AdminDAO dao = new AdminDAO();
+				List<Users> list=dao.search();
+				
+				session.setAttribute("list", list);
+				
 				return "users.jsp";
 			}
 			

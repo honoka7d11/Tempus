@@ -14,6 +14,7 @@ public class ReturnAction extends Action {
 	) throws Exception {
 		
 		HttpSession session = request.getSession();
+		session.removeAttribute("list2");
 		
 		Users users = null;
 		users = (Users) session.getAttribute("users");

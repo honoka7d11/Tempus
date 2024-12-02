@@ -47,11 +47,11 @@
 	<form action="User.action?id=3" method="post">
 		<label for="user_id">社員番号</label> <input id="user_id" type="text" name="user_id"required>
 		<label for="user_name">氏名</label><input id="name" type="text" name="user_name" required>
-		<label for="password">パスワード</label><input id="password" name="password" required>
+		<label for="password">パスワード</label><input id="password" type="text" name="password" required>
 		<label for="password">管理者権限の有無を選択してください</label>
-		<select>
-			<option value="false">無</option>
-			<option value="true">有</option>
+		<select name = admin>
+			<option value=0>無</option>
+			<option value=1>有</option>
 		</select>
 		<button type="submit">登録</button>
 	</form>
