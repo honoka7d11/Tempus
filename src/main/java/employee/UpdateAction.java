@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpSession;
 import bean.Attend;
 import bean.Users;
 import dao.AdminDAO;
+import dao.AttendanceDAO;
 import tool.Action;
 
 
@@ -32,18 +33,20 @@ public class UpdateAction extends Action {
 		
 		if (attend == 1) {
 			AdminDAO dao=new AdminDAO();
-			dao.updateAttend(at);
+			AttendanceDAO dao2=new AttendanceDAO();
+			dao2.updateAttend(at);
 			List<Users> list=dao.search();
-			List<Attend> list2=dao.searchRow(id);
+			List<Attend> list2=dao2.searchRow(id);
 			session.setAttribute("list", list);
 			session.setAttribute("list2", list2);
 			return "admin.jsp";
 			
 		}else {
 			AdminDAO dao=new AdminDAO();
+			AttendanceDAO dao2=new AttendanceDAO();
 			dao.updateLeave(at);
 			List<Users> list=dao.search();
-			List<Attend> list2=dao.searchRow(id);
+			List<Attend> list2=dao2.searchRow(id);
 			session.setAttribute("list", list);
 			session.setAttribute("list2", list2);
 			return "admin.jsp";

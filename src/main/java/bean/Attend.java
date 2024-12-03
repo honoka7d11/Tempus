@@ -10,6 +10,7 @@ public class Attend implements java.io.Serializable {
 	private String leTime;
 	private String reason;
 	private String name;
+	private String month;
 	
 	
 	//ゲッター
@@ -47,6 +48,10 @@ public class Attend implements java.io.Serializable {
 	public String getName() {
 		return name;
 	}
+	
+	public String getMonth() {
+		return month;
+	}
 
 	//セッター
 	public void setId(int id) {
@@ -83,6 +88,10 @@ public class Attend implements java.io.Serializable {
 	
 	public void setName(String name) {
 		this.name=name;
+	}
+	
+	public void setMonth(String month) {
+		this.month=month;
 	}
 
 }

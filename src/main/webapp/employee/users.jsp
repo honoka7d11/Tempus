@@ -56,6 +56,7 @@
 		<button type="submit">登録</button>
 	</form>
 </div>
-
-<a href="Return.action" class="button">戻る</a>
+<div class="url">
+<a href="Return.action?id=2" class="button">戻る</a>
+</div>
 <%@include file="../footer.html" %>

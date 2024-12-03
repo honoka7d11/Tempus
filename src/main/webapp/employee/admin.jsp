@@ -84,7 +84,7 @@
 			dialog.style.display = 'block';">更新</button>
 		</td>
 		<td>
-		<form action="" method="post">
+		<form action="Delete.action?id=${attend.id}" method="post">
 		<button style="width:40%;margin:auto;">削除</button>
 		</form>
 		</td>
@@ -162,7 +162,8 @@ position:fixed;top:120px;z-index:9999;">
 	</div>
 </div>
 
-
+<div class="url">
 <a href="Admin.action?id=2" class="button">社員情報編集</a>
-<a href="Return.action" class="button">戻る</a>
+<a href="Return.action?id=1" class="button">戻る</a>
+</div>
 <%@include file="../footer.html" %>

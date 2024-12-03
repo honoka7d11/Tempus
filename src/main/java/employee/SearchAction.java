@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpSession;
 import bean.Attend;
 import bean.Users;
 import dao.AdminDAO;
+import dao.AttendanceDAO;
 import tool.Action;
 
 
@@ -24,13 +25,14 @@ public class SearchAction extends Action {
 		String month = request.getParameter("selectMonth");
 		
 		LocalDate today = LocalDate.now();
-        int year = today.getYear();
+        String year = Integer.toString(today.getYear());
+        String date = year+"-"+month+"%";
         
-        String date = year+ "-" +month+ "%";
 		
 		AdminDAO dao=new AdminDAO();
-		List<Attend> list2=dao.searchAttend(userId, date);
-		String name=dao.searchName(userId);
+		AttendanceDAO dao2=new AttendanceDAO();
+		List<Attend> list2=dao2.searchAttend(userId, date);
+		String name=dao2.searchName(userId);
 		
 		List<Users> list=dao.search();
 		
