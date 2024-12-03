@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@include file="../header.html" %>
-
+<h1>勤怠システム</h1>
 <div class=btn> 
-	<form action="Attendance.action?id=1" method="post">
+	<form action="Attendance.action?id=1" method="post" style="width:25%;">
 	<button type="submit">出勤</button>
 	</form>
 	
-	<form action="Attendance.action?id=2" method="post">
+	<form action="Attendance.action?id=2" method="post" style="width:25%;">
 	<button type="submit">退勤</button>
 </form>
 </div>
@@ -31,12 +31,15 @@
         Boolean admin = (Boolean) request.getAttribute("admin");
         if (admin != null && admin) { 
     %>
+    	<div class="url">
         <a href="Admin.action?id=1" class="button">管理者ページ</a>
-        <a href="logout.html" class="button">ログアウト</a>
+        <a href="Logout.action" class="button">ログアウト</a>
+        </div>
     <% 
         } else { 
-    %>
-        <a href="logout.html" class="button">ログアウト</a>
+    %>	<div class="url">
+        <a href="Logout.action" class="button">ログアウト</a>
+        </div>
     <% 
         } 
     %>
