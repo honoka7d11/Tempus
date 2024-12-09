@@ -77,18 +77,31 @@ public class UserAction extends Action {
 			int userId = Integer.parseInt(request.getParameter("user_id"));
 			String name = request.getParameter("user_name");
 			String password = request.getParameter("password");
-			boolean admin = Boolean.valueOf(request.getParameter("admin"));
+			int adminNum = Integer.parseInt(request.getParameter("admin"));
 			
-			Users users = new Users();
-			users.setId(userId);
-			users.setName(name);
-			users.setPassword(password);
-			users.setAdmin(admin);
-
-			AdminDAO dao = new AdminDAO();
-			dao.insert(users);
-			List<Users> list=dao.search();
-			session.setAttribute("list", list);
+			if (adminNum == 0) {
+				Users users = new Users();
+				users.setId(userId);
+				users.setName(name);
+				users.setPassword(password);
+				users.setAdmin(false);
+	
+				AdminDAO dao = new AdminDAO();
+				dao.insert(users);
+				List<Users> list=dao.search();
+				session.setAttribute("list", list);
+			}else {
+				Users users = new Users();
+				users.setId(userId);
+				users.setName(name);
+				users.setPassword(password);
+				users.setAdmin(true);
+	
+				AdminDAO dao = new AdminDAO();
+				dao.insert(users);
+				List<Users> list=dao.search();
+				session.setAttribute("list", list);
+			}
 			
 			return "users.jsp";
 		}else {
