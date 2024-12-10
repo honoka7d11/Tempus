@@ -30,6 +30,7 @@ public class UpdateAction extends Action {
 		at.setId(id);
 		at.setDate(date);
 		at.setAtTime(time);
+		at.setLeTime(time);
 		
 		if (attend == 1) {
 			AdminDAO dao=new AdminDAO();
@@ -41,7 +42,7 @@ public class UpdateAction extends Action {
 			session.setAttribute("list2", list2);
 			return "admin.jsp";
 			
-		}else {
+		}else if (attend == 2){
 			AdminDAO dao=new AdminDAO();
 			AttendanceDAO dao2=new AttendanceDAO();
 			dao.updateLeave(at);
@@ -49,6 +50,8 @@ public class UpdateAction extends Action {
 			List<Attend> list2=dao2.searchRow(id);
 			session.setAttribute("list", list);
 			session.setAttribute("list2", list2);
+			return "admin.jsp";
+		}else {
 			return "admin.jsp";
 		}
 		
