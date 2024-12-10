@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@include file="../header.html" %>
-<h1>勤怠システム</h1>
+<h1>勤怠システム─Tempus─</h1>
 <div class=btn> 
 	<form action="Attendance.action?id=1" method="post" style="width:25%;">
 	<button type="submit">出勤</button>
