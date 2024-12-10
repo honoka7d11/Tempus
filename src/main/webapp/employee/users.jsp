@@ -3,7 +3,7 @@
 <%@include file="../header.html" %>
 
 <h1 class=title>社員情報の管理</h1>
-<h2 class=title>管理者登録の登録・削除</h2>
+<h2 class=title>管理者の登録・削除</h2>
 <div class="userform">
 	<form action="User.action?id=1" method="post">
 	        <label for="selectName">管理者として登録する社員、もしくは管理者登録を解除する社員を選択してください</label>
