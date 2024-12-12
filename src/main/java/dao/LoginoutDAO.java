@@ -36,6 +36,20 @@ public class LoginoutDAO extends DAO {
 		con.close();
 		return users;
 		
-	}	
+	}
+	
+	public void update(int id, String pass) throws Exception {
+		Connection con=getConnection();
+		
+		PreparedStatement st;
+		st=con.prepareStatement("UPDATE users SET password = ? WHERE id = ?;");
+		st.setString(1, pass);
+		st.setInt(2, id);
+		
+		st.executeUpdate();
+		
+		st.close();
+		con.close();
+	}
 	
 }

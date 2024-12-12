@@ -32,12 +32,14 @@
         if (admin != null && admin) { 
     %>
     	<div class="url">
+    	<a href="passchange.jsp" class="button">パスワード変更画面</a>
         <a href="Admin.action?id=1" class="button">管理者ページ</a>
         <a href="Logout.action" class="button">ログアウト</a>
         </div>
     <% 
         } else { 
     %>	<div class="url">
+    <a href="passchange.jsp" class="button">パスワード変更画面</a>
         <a href="Logout.action" class="button">ログアウト</a>
         </div>
     <% 
