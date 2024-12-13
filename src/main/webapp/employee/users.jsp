@@ -45,9 +45,9 @@
 <h2 class=title>新規社員登録</h2>
 <div class="userform">
 	<form action="User.action?id=3" method="post">
-		<label for="user_id">社員番号</label> <input id="user_id" type="text" name="user_id"required>
+		<label for="user_id">社員番号</label> <input id="user_id" type="text" name="user_id" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
 		<label for="user_name">氏名</label><input id="name" type="text" name="user_name" required>
-		<label for="password">パスワード</label><input id="password" type="text" name="password" required>
+		<label for="password">パスワード</label><input id="password" type="password" name="password" oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')" required>
 		<label for="password">管理者権限の有無を選択してください</label>
 		<select name = admin>
 			<option value=0>無</option>
