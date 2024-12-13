@@ -19,7 +19,7 @@ public class AdminAction extends Action {
 		session.removeAttribute("list2");
 		int id = Integer.parseInt(request.getParameter("id"));
 		
-		if (id == 1) {
+		if (id == 1) { 	//admin.jspに画面遷移する際に社員リストのデータをセット
 			AdminDAO dao = new AdminDAO();
 			List<Users> list=dao.search();
 			
@@ -27,7 +27,7 @@ public class AdminAction extends Action {
 			session.setAttribute("list", list);
 			
 			return "admin.jsp";
-		}else if (id == 2) {
+		}else if (id == 2) {	//users.jspに画面遷移する際に社員リストのデータをセット
 			AdminDAO dao = new AdminDAO();
 			List<Users> list=dao.search();
 			

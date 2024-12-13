@@ -11,6 +11,8 @@ import bean.Attend;
 
 
 public class AttendanceDAO extends DAO {
+	
+	//	出勤記録の登録
 	public void insert(Attend at) throws Exception {
 		Connection con=getConnection();
 		
@@ -28,6 +30,7 @@ public class AttendanceDAO extends DAO {
 		
 	}
 	
+	//	今日出勤しているかの確認
 	public ArrayList<Object> search(int id, String date) throws Exception{
 		ArrayList<Object> list=new ArrayList<>();
 		
@@ -50,6 +53,7 @@ public class AttendanceDAO extends DAO {
 		return list;
 	}
 	
+	//	既に出勤記録のある行に退勤記録を追加
 	public void leave(Attend at) throws Exception {
 		Connection con=getConnection();
 		
@@ -67,6 +71,7 @@ public class AttendanceDAO extends DAO {
 		
 	}
 	
+	//	勤怠記録の検索
 	public List<Attend> searchAttend(int id, String date) throws Exception{
 		List<Attend> list=new ArrayList<>();
 		
@@ -97,6 +102,8 @@ public class AttendanceDAO extends DAO {
 		return list;
 	}
 	
+	
+	//	指定した行のデータを取得
 	public List<Attend> searchRow(int id) throws Exception{
 		List<Attend> list=new ArrayList<>();
 		
@@ -124,6 +131,7 @@ public class AttendanceDAO extends DAO {
 		return list;
 	}
 	
+	//	社員番号に相当する社員名を取得
 	public String searchName(int id) throws Exception{
 		Connection con=getConnection();
 		Attend attend=null;
@@ -146,6 +154,7 @@ public class AttendanceDAO extends DAO {
 		
 	}
 	
+//	勤怠記録のデータを取得
 	public ArrayList<Object> searchData(int id) throws Exception{
 		Connection con=getConnection();
 		ArrayList<Object> list=new ArrayList<>();
@@ -166,6 +175,8 @@ public class AttendanceDAO extends DAO {
 			return list;
 	}
 	
+	
+	//	出勤記録の更新
 	public void updateAttend(Attend attend) throws Exception{
 		
 		Connection con=getConnection();
@@ -183,7 +194,25 @@ public class AttendanceDAO extends DAO {
 	}
 	
 	
+	//	退勤記録の更新
+	public void updateLeave(Attend attend) throws Exception{
+		
+		Connection con=getConnection();
+		
+		PreparedStatement st;
+		st=con.prepareStatement("UPDATE attend SET date = ?, le_time = ? WHERE id = ?;");
+		st.setString(1, attend.getDate());
+		st.setString(2, attend.getLeTime());
+		st.setInt(3, attend.getId());
+		st.executeUpdate();
+		
+		st.close();
+		con.close();
+		
+	}
 	
+	
+	//	勤怠記録の削除
 	public void delete(int id) throws Exception{
 		
 		Connection con=getConnection();
