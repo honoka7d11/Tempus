@@ -21,7 +21,7 @@ public class ReturnAction extends Action {
 		
 		
 		
-		if (id == 1) {
+		if (id == 1) {// 管理者ページからメイン画面に戻る操作
 			Users users = null;
 			users = (Users) session.getAttribute("users");
 			
@@ -36,7 +36,7 @@ public class ReturnAction extends Action {
 				return "login.jsp";
 			}
 			
-		}else if(id == 2) {
+		}else if(id == 2) {// 社員情報編集ページから管理者ページに戻る操作
 			session.removeAttribute("list2");
 			AdminDAO dao = new AdminDAO();
 			List<Users> list=dao.search();

@@ -38,6 +38,7 @@ public class LoginoutDAO extends DAO {
 		
 	}
 	
+	//	パスワード変更
 	public void update(int id, String pass) throws Exception {
 		Connection con=getConnection();
 		

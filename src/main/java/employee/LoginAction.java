@@ -19,13 +19,14 @@ public class LoginAction extends Action {
 		int id = Integer.parseInt(request.getParameter("id"));
 		String password = request.getParameter("password");
 		
-		
+//		社員番号とパスワードが正しいかどうか
 		LoginoutDAO dao = new LoginoutDAO();
 		Users users = dao.serch(id, password);
 		
 		
 		
-		if (users != null) {
+		if (users != null) {	//正しい場合
+//			管理者権限の有無とユーザー情報をセット
 			Boolean admin=users.getAdmin();
 			request.setAttribute("admin", admin);
 			session.setAttribute("users", users);

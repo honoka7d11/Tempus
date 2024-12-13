@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.Attend;
 import bean.Users;
 
 
 public class AdminDAO extends DAO {
+	//	社員選択リスト
 	public List<Users> search() throws Exception{
 		List<Users> list=new ArrayList<>();
 		
@@ -35,9 +35,7 @@ public class AdminDAO extends DAO {
 	}
 	
 	
-	
-	
-	
+	//	管理者の登録・削除
 	public void update(boolean admin, int id) throws Exception{
 		
 		Connection con=getConnection();
@@ -54,24 +52,8 @@ public class AdminDAO extends DAO {
 		
 	}
 	
-	
-	
-	public void updateLeave(Attend attend) throws Exception{
-		
-		Connection con=getConnection();
-		
-		PreparedStatement st;
-		st=con.prepareStatement("UPDATE attend SET date = ?, le_time = ? WHERE id = ?;");
-		st.setString(1, attend.getDate());
-		st.setString(2, attend.getLeTime());
-		st.setInt(3, attend.getId());
-		st.executeUpdate();
-		
-		st.close();
-		con.close();
-		
-	}
-	
+
+	//	社員情報削除
 	public void delete(int id) throws Exception{
 		
 		Connection con=getConnection();
@@ -87,6 +69,7 @@ public class AdminDAO extends DAO {
 		
 	}
 	
+	//	新規社員登録
 	public void insert(Users users) throws Exception{
 		
 		
