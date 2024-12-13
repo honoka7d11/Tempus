@@ -4,7 +4,7 @@
 <div style="text-align:center;margin-top:250px">
 	<form action="PassChange.action" method="post" >
 	<p>変更後のパスワード</p>
-	<p><input type="text" name="password"></p>
+	<p><input type="password" name="password" oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')"></p>
 	<p><button type="submit">変更</button>
 	</form>
 </div>
